@@ -18,15 +18,15 @@ package com.wondersgroup.roa.annotation;
  */
 public enum HttpAction {
 
-	GET, POST;
+	GET, POST, DELETE;
 
 	public static HttpAction fromValue(String value) {
 		if (GET.name().equalsIgnoreCase(value)) {
 			return GET;
 		}
-//		else if (POST.name().equalsIgnoreCase(value)) {
-//			return POST;
-//		}
+		else if (DELETE.name().equalsIgnoreCase(value)) {
+			return DELETE;
+		}
 		else {
 			return POST;
 		}
