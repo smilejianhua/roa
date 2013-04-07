@@ -48,7 +48,7 @@ public class DefaultROAClient implements ROAClient {
 	private String serverUrl;
 
 	// 应用键
-	private String appKey;
+	private String apiKey;
 
 	// 应用密钥
 	private String appSecret;
@@ -78,23 +78,23 @@ public class DefaultROAClient implements ROAClient {
 		roaConverterMap.put(UploadFile.class, new UploadFileConverter());
 	}
 
-	public DefaultROAClient(String serverUrl, String appKey, String appSecret) {
+	public DefaultROAClient(String serverUrl, String apiKey, String appSecret) {
 		this.serverUrl = serverUrl;
-		this.appKey = appKey;
+		this.apiKey = apiKey;
 		this.appSecret = appSecret;
 	}
 
-	public DefaultROAClient(String serverUrl, String appKey, String appSecret, MessageFormat messageFormat) {
+	public DefaultROAClient(String serverUrl, String apiKey, String appSecret, MessageFormat messageFormat) {
 		this.serverUrl = serverUrl;
-		this.appKey = appKey;
+		this.apiKey = apiKey;
 		this.appSecret = appSecret;
 		this.messageFormat = messageFormat;
 	}
 
-	public DefaultROAClient(String serverUrl, String appKey, String appSecret, MessageFormat messageFormat,
+	public DefaultROAClient(String serverUrl, String apiKey, String appSecret, MessageFormat messageFormat,
 			Locale locale) {
 		this.serverUrl = serverUrl;
-		this.appKey = appKey;
+		this.apiKey = apiKey;
 		this.appSecret = appSecret;
 		this.messageFormat = messageFormat;
 		this.locale = locale;
@@ -122,8 +122,8 @@ public class DefaultROAClient implements ROAClient {
 	}
 
 	@Override
-	public ROAClient setAppKeyParamName(String paramName) {
-		SystemParameterNames.setAppKey(paramName);
+	public ROAClient setApiKeyParamName(String paramName) {
+		SystemParameterNames.setApiKey(paramName);
 		return this;
 	}
 
@@ -183,7 +183,7 @@ public class DefaultROAClient implements ROAClient {
 
 		private DefaultClientRequest(ROAClient roaClient) {
 			this.roaClient = roaClient;
-			paramMap.put(SystemParameterNames.getAppKey(), appKey);
+			paramMap.put(SystemParameterNames.getApiKey(), apiKey);
 			paramMap.put(SystemParameterNames.getFormat(), messageFormat.name());
 			paramMap.put(SystemParameterNames.getLocale(), locale.toString());
 			if (sessionId != null) {
@@ -328,7 +328,7 @@ public class DefaultROAClient implements ROAClient {
 			Map<String, String> form = new LinkedHashMap<String, String>(16);
 
 			// 系统级参数
-			form.put(SystemParameterNames.getAppKey(), appKey);
+			form.put(SystemParameterNames.getApiKey(), apiKey);
 			form.put(SystemParameterNames.getMethod(), methodName);
 			form.put(SystemParameterNames.getVersion(), version);
 			form.put(SystemParameterNames.getFormat(), messageFormat.name());

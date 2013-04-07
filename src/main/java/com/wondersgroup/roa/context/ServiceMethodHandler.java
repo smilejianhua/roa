@@ -22,24 +22,36 @@ import java.util.List;
  */
 public class ServiceMethodHandler {
 
-	// 处理器对象
+	/**
+	 * 处理器对象
+	 */
 	private Object handler;
 
-	// 处理器的处理方法
+	/**
+	 * 处理器的处理方法
+	 */
 	private Method handlerMethod;
 
 	private ServiceMethodDefinition serviceMethodDefinition;
 
-	// 处理方法的请求对象类
+	/**
+	 * 处理方法的请求对象类
+	 */
 	private Class<? extends ROARequest> requestType = ROARequest.class;
 
-	// 无需签名的字段列表
+	/**
+	 * 无需签名的字段列表
+	 */
 	private List<String> ignoreSignFieldNames;
 
-	// 属性类型为FileItem的字段列表
+	/**
+	 * 属性类型为FileItem的字段列表
+	 */
 	private List<String> uploadFileFieldNames;
 
-	// 是否是实现类
+	/**
+	 * 是否是实现类
+	 */
 	private boolean roaRequestImplType;
 
 	public ServiceMethodHandler() {

@@ -22,37 +22,37 @@ public interface InvokeTimesController {
 
     /**
      * 计算应用、会话及用户服务调度总数
-     * @param appKey
+     * @param apiKey
      * @param session
      */
-    public void caculateInvokeTimes(String appKey, Session session);
+    public void caculateInvokeTimes(String apiKey, Session session);
 
     /**
      * 用户服务访问次数是否超限
      * @param session
      * @return
      */
-    public boolean isUserInvokeLimitExceed(String appKey, Session session);
+    public boolean isUserInvokeLimitExceed(String apiKey, Session session);
 
     /**
      * 某个会话的服务访问次数是否超限
      * @param sessionId
      * @return
      */
-    public boolean isSessionInvokeLimitExceed(String appKey, String sessionId);
+    public boolean isSessionInvokeLimitExceed(String apiKey, String sessionId);
 
     /**
      * 应用的服务访问次数是否超限
-     * @param appKey
+     * @param apiKey
      * @return
      */
-    public boolean isAppInvokeLimitExceed(String appKey);
+    public boolean isAppInvokeLimitExceed(String apiKey);
 
     /**
      * 应用对服务的访问频率是否超限
-     * @param appKey
+     * @param apiKey
      * @return
      */
-    public boolean isAppInvokeFrequencyExceed(String appKey);
+    public boolean isAppInvokeFrequencyExceed(String apiKey);
 }
 

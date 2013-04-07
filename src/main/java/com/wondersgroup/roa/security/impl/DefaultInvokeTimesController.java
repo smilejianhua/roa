@@ -22,26 +22,26 @@ import com.wondersgroup.roa.session.Session;
 public class DefaultInvokeTimesController implements InvokeTimesController {
 
 	@Override
-	public void caculateInvokeTimes(String appKey, Session session) {
+	public void caculateInvokeTimes(String apiKey, Session session) {
 	}
 
 	@Override
-	public boolean isUserInvokeLimitExceed(String appKey, Session session) {
+	public boolean isUserInvokeLimitExceed(String apiKey, Session session) {
 		return false;
 	}
 
 	@Override
-	public boolean isSessionInvokeLimitExceed(String appKey, String sessionId) {
+	public boolean isSessionInvokeLimitExceed(String apiKey, String sessionId) {
 		return false;
 	}
 
 	@Override
-	public boolean isAppInvokeLimitExceed(String appKey) {
+	public boolean isAppInvokeLimitExceed(String apiKey) {
 		return false;
 	}
 
 	@Override
-	public boolean isAppInvokeFrequencyExceed(String appKey) {
+	public boolean isAppInvokeFrequencyExceed(String apiKey) {
 		return false;
 	}
 }

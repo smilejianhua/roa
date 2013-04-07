@@ -77,11 +77,11 @@ public class DefaultSecurityManager implements SecurityManager {
 		ROAContext roaContext = rrc.getROAContext();
 		MainError mainError = null;
 
-		// 1.检查appKey
-		if (rrc.getAppKey() == null) {
+		// 1.检查apiKey
+		if (rrc.getApiKey() == null) {
 			return MainErrors.getError(MainErrorType.MISSING_APP_KEY, rrc.getLocale());
 		}
-		if (!appSecretManager.isValidAppKey(rrc.getAppKey())) {
+		if (!appSecretManager.isValidApiKey(rrc.getApiKey())) {
 			return MainErrors.getError(MainErrorType.INVALID_APP_KEY, rrc.getLocale());
 		}
 
@@ -220,16 +220,16 @@ public class DefaultSecurityManager implements SecurityManager {
 	}
 
 	private MainError checkInvokeTimesLimit(ROARequestContext rrctx) {
-		if (invokeTimesController.isAppInvokeFrequencyExceed(rrctx.getAppKey())) {
+		if (invokeTimesController.isAppInvokeFrequencyExceed(rrctx.getApiKey())) {
 			return MainErrors.getError(MainErrorType.EXCEED_APP_INVOKE_FREQUENCY_LIMITED, rrctx.getLocale());
 		}
-		else if (invokeTimesController.isAppInvokeLimitExceed(rrctx.getAppKey())) {
+		else if (invokeTimesController.isAppInvokeLimitExceed(rrctx.getApiKey())) {
 			return MainErrors.getError(MainErrorType.EXCEED_APP_INVOKE_LIMITED, rrctx.getLocale());
 		}
-		else if (invokeTimesController.isSessionInvokeLimitExceed(rrctx.getAppKey(), rrctx.getSessionId())) {
+		else if (invokeTimesController.isSessionInvokeLimitExceed(rrctx.getApiKey(), rrctx.getSessionId())) {
 			return MainErrors.getError(MainErrorType.EXCEED_SESSION_INVOKE_LIMITED, rrctx.getLocale());
 		}
-		else if (invokeTimesController.isUserInvokeLimitExceed(rrctx.getAppKey(), rrctx.getSession())) {
+		else if (invokeTimesController.isUserInvokeLimitExceed(rrctx.getApiKey(), rrctx.getSession())) {
 			return MainErrors.getError(MainErrorType.EXCEED_USER_INVOKE_LIMITED, rrctx.getLocale());
 		}
 		else {
@@ -269,7 +269,7 @@ public class DefaultSecurityManager implements SecurityManager {
 	}
 
 	private MainError checkServiceAccessAllow(ROARequestContext smc) {
-		if (!getServiceAccessController().isAppGranted(smc.getAppKey(), smc.getMethod(), smc.getVersion())) {
+		if (!getServiceAccessController().isAppGranted(smc.getApiKey(), smc.getMethod(), smc.getVersion())) {
 			MainError mainError = SubErrors.getMainError(SubErrorType.ISV_INVALID_PERMISSION, smc.getLocale());
 			SubError subError = SubErrors.getSubError(SubErrorType.ISV_INVALID_PERMISSION.value(),
 					SubErrorType.ISV_INVALID_PERMISSION.value(), smc.getLocale());
@@ -332,16 +332,16 @@ public class DefaultSecurityManager implements SecurityManager {
 						}
 					}
 
-					// 查看密钥是否存在，不存在则说明appKey是非法的
-					String signSecret = getAppSecretManager().getSecret(ctx.getAppKey());
+					// 查看密钥是否存在，不存在则说明apiKey是非法的
+					String signSecret = getAppSecretManager().getSecret(ctx.getApiKey());
 					if (signSecret == null) {
-						throw new ROAException("无法获取" + ctx.getAppKey() + "对应的密钥");
+						throw new ROAException("无法获取" + ctx.getApiKey() + "对应的密钥");
 					}
 
 					String signValue = ROAUtils.sign(needSignParams, signSecret);
 					if (!signValue.equals(ctx.getSign())) {
 						if (logger.isErrorEnabled()) {
-							logger.error(ctx.getAppKey() + "的签名不合法，请检查");
+							logger.error(ctx.getApiKey() + "的签名不合法，请检查");
 						}
 						return MainErrors.getError(MainErrorType.INVALID_SIGNATURE, ctx.getLocale());
 					}

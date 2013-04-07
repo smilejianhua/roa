@@ -27,7 +27,7 @@ public interface ServiceAccessController {
      * @param userId
      * @return
      */
-    public boolean isAppGranted(String appKey, String method, String version);
+    public boolean isAppGranted(String apiKey, String method, String version);
 
     /**
      *  服务方法是否向当前用户开放

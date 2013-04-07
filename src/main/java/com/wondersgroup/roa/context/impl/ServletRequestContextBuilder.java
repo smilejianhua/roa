@@ -81,7 +81,7 @@ public class ServletRequestContextBuilder implements RequestContextBuilder {
 		requestContext.setIp(getRemoteAddr(servletRequest)); // 感谢melin所指出的BUG
 
 		// 设置服务的系统级参数
-		requestContext.setAppKey(servletRequest.getParameter(SystemParameterNames.getAppKey()));
+		requestContext.setApiKey(servletRequest.getParameter(SystemParameterNames.getApiKey()));
 		requestContext.setSessionId(servletRequest.getParameter(SystemParameterNames.getSessionId()));
 		requestContext.setMethod(servletRequest.getParameter(SystemParameterNames.getMethod()));
 		requestContext.setVersion(servletRequest.getParameter(SystemParameterNames.getVersion()));

@@ -38,7 +38,7 @@ public class FileBaseAppSecretManager implements AppSecretManager {
 
 	private Properties properties;
 
-	public String getSecret(String appKey) {
+	public String getSecret(String apiKey) {
 		if (properties == null) {
 			try {
 				DefaultResourceLoader resourceLoader = new DefaultResourceLoader();
@@ -49,9 +49,9 @@ public class FileBaseAppSecretManager implements AppSecretManager {
 				throw new ROAException("在类路径下找不到roa.appSecret.properties的应用密钥的属性文件", e);
 			}
 		}
-		String secret = properties.getProperty(appKey);
+		String secret = properties.getProperty(apiKey);
 		if (secret == null) {
-			logger.error("不存在应用键为{0}的密钥,请检查应用密钥的配置文件。", appKey);
+			logger.error("不存在应用键为{0}的密钥,请检查应用密钥的配置文件。", apiKey);
 		}
 		return secret;
 	}
@@ -61,7 +61,7 @@ public class FileBaseAppSecretManager implements AppSecretManager {
 	}
 
 	@Override
-	public boolean isValidAppKey(String appKey) {
-		return getSecret(appKey) != null;
+	public boolean isValidApiKey(String apiKey) {
+		return getSecret(apiKey) != null;
 	}
 }

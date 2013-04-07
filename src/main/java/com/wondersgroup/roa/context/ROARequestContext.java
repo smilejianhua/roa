@@ -48,11 +48,11 @@ public interface ROARequestContext {
 	public String getVersion();
 
 	/**
-	 * 获取应用的appKey
+	 * 获取应用的apiKey
 	 * 
 	 * @return
 	 */
-	public String getAppKey();
+	public String getApiKey();
 
 	/**
 	 * 获取会话的ID

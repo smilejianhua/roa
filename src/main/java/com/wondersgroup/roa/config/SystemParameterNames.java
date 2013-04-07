@@ -31,7 +31,7 @@ public class SystemParameterNames {
     private static final String SESSION_ID = "sessionId";
 
     //应用键的默认参数名        ;
-    private static final String APP_KEY = "appKey";
+    private static final String API_KEY = "apiKey";
 
     //服务版本号的默认参数名
     private static final String VERSION = "v";
@@ -47,7 +47,7 @@ public class SystemParameterNames {
 
     private static String sessionId = SESSION_ID;
     
-    private static String appKey = APP_KEY;
+    private static String apiKey = API_KEY;
 
     private static String version = VERSION;
 
@@ -85,12 +85,12 @@ public class SystemParameterNames {
         SystemParameterNames.sessionId = sessionId;
     }
 
-    public static String getAppKey() {
-        return appKey;
+    public static String getApiKey() {
+        return apiKey;
     }
 
-    public static void setAppKey(String appKey) {
-        SystemParameterNames.appKey = appKey;
+    public static void setApiKey(String apiKey) {
+        SystemParameterNames.apiKey = apiKey;
     }
 
     public static String getVersion() {
