@@ -18,7 +18,7 @@ import com.wondersgroup.roa.security.impl.DefaultInvokeTimesController;
 import com.wondersgroup.roa.security.impl.DefaultSecurityManager;
 import com.wondersgroup.roa.security.impl.DefaultServiceAccessController;
 import com.wondersgroup.roa.security.impl.FileBaseAppSecretManager;
-import com.wondersgroup.roa.session.DefaultSessionManager;
+import com.wondersgroup.roa.session.impl.DefaultSessionManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

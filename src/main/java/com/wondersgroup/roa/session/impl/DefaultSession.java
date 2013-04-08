@@ -9,12 +9,14 @@
  *
  * Distributable under GNU LGPL license by gun.org
  */
-package com.wondersgroup.roa.session;
+package com.wondersgroup.roa.session.impl;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class SimpleSession implements Session {
+import com.wondersgroup.roa.session.Session;
+
+public class DefaultSession implements Session {
 
 	private static final long serialVersionUID = 6898039722389354626L;
 

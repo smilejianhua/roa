@@ -9,10 +9,13 @@
  *
  * Distributable under GNU LGPL license by gun.org
  */
-package com.wondersgroup.roa.session;
+package com.wondersgroup.roa.session.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.wondersgroup.roa.session.Session;
+import com.wondersgroup.roa.session.SessionManager;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
