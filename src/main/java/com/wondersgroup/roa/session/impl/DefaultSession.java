@@ -16,6 +16,11 @@ import java.util.Map;
 
 import com.wondersgroup.roa.session.Session;
 
+/**
+ * 默认简单Session实现
+ * 
+ * @author Jacky.Li
+ */
 public class DefaultSession implements Session {
 
 	private static final long serialVersionUID = 6898039722389354626L;

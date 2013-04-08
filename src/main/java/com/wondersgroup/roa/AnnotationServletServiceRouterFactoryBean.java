@@ -205,7 +205,6 @@ public class AnnotationServletServiceRouterFactoryBean implements FactoryBean<An
 				.getBeansOfType(ROAEventListenerHodler.class);
 		if (listenerMap != null && listenerMap.size() > 0) {
 			ArrayList<ROAEventListener> roaEventListeners = new ArrayList<ROAEventListener>(listenerMap.size());
-
 			// 从Spring容器中获取Interceptor
 			for (ROAEventListenerHodler listenerHolder : listenerMap.values()) {
 				roaEventListeners.add(listenerHolder.getROAEventListener());
