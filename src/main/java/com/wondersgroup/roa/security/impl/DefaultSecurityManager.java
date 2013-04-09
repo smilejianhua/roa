@@ -19,7 +19,7 @@ import com.wondersgroup.roa.context.ROARequestContext;
 import com.wondersgroup.roa.context.ServiceMethodHandler;
 import com.wondersgroup.roa.context.impl.SimpleROARequestContext;
 import com.wondersgroup.roa.request.UploadFileUtils;
-import com.wondersgroup.roa.security.AppSecretManager;
+import com.wondersgroup.roa.security.ApiSecretManager;
 import com.wondersgroup.roa.security.FileUploadController;
 import com.wondersgroup.roa.security.InvokeTimesController;
 import com.wondersgroup.roa.security.MainError;
@@ -45,7 +45,7 @@ public class DefaultSecurityManager implements SecurityManager {
 
 	protected ServiceAccessController serviceAccessController = new DefaultServiceAccessController();
 
-	protected AppSecretManager appSecretManager = new FileBaseAppSecretManager();
+	protected ApiSecretManager appSecretManager = new FileBaseApiSecretManager();
 
 	protected SessionManager sessionManager;
 
@@ -205,7 +205,7 @@ public class DefaultSecurityManager implements SecurityManager {
 	}
 
 	@Override
-	public void setAppSecretManager(AppSecretManager appSecretManager) {
+	public void setAppSecretManager(ApiSecretManager appSecretManager) {
 		this.appSecretManager = appSecretManager;
 	}
 
@@ -264,7 +264,7 @@ public class DefaultSecurityManager implements SecurityManager {
 		return serviceAccessController;
 	}
 
-	public AppSecretManager getAppSecretManager() {
+	public ApiSecretManager getAppSecretManager() {
 		return appSecretManager;
 	}
 

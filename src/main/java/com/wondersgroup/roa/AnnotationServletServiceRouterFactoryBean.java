@@ -48,7 +48,7 @@ public class AnnotationServletServiceRouterFactoryBean implements FactoryBean<An
 
 	private SessionManager sessionManager;
 
-	private AppSecretManager appSecretManager;
+	private ApiSecretManager appSecretManager;
 
 	private ServiceAccessController serviceAccessController;
 
@@ -240,7 +240,7 @@ public class AnnotationServletServiceRouterFactoryBean implements FactoryBean<An
 		this.sessionManager = sessionManager;
 	}
 
-	public void setAppSecretManager(AppSecretManager appSecretManager) {
+	public void setAppSecretManager(ApiSecretManager appSecretManager) {
 		this.appSecretManager = appSecretManager;
 	}
 

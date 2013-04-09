@@ -16,7 +16,7 @@ package com.wondersgroup.roa.security;
  * 
  * @author Jacky.Li
  */
-public interface AppSecretManager {
+public interface ApiSecretManager {
 
     /**
      * 获取应用程序的密钥

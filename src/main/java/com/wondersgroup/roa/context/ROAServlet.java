@@ -12,7 +12,7 @@
 package com.wondersgroup.roa.context;
 
 import com.wondersgroup.roa.Interceptor;
-import com.wondersgroup.roa.security.AppSecretManager;
+import com.wondersgroup.roa.security.ApiSecretManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,12 +29,12 @@ import java.io.IOException;
 /**
  * HttpServlet是ROA框架的总入口，提供了多个定制ROA框架的配置参数：
  * 
- * 1.ROA会自己扫描Spring容器并加载之{@link SessionChecker}、{@link AppSecretManager}及
+ * 1.ROA会自己扫描Spring容器并加载之{@link SessionChecker}、{@link ApiSecretManager}及
  * {@link Interceptor}的Bean。也可以通过 "sessionCheckerClassName"、"appSecretManagerClassName"
  * 和"interceptorClassNames"的Servlet参数指定实现类的类名。如果显式指定了Servlet
  * 参数，则ROA就不会扫描Spring容器中的Bean了。如果既没有使用Servlet参数指定，也没有在Spring容器中配置，则ROA使用
- * {@link DefaultSessionChecker}和{@link FileBaseAppSecretManager} 作为
- * {@link SessionChecker}和{@link AppSecretManager}的实现类。
+ * {@link DefaultSessionChecker}和{@link FileBaseApiSecretManager} 作为
+ * {@link SessionChecker}和{@link ApiSecretManager}的实现类。
  * 
  * 2.可通过"errorResourceBaseName"指定错误资源文件的基名，默认为“i18n/roa/roaError”.
  * 

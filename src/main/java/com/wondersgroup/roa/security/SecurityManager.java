@@ -50,7 +50,7 @@ public interface SecurityManager {
      *
      * @return
      */
-    public void setAppSecretManager(AppSecretManager appSecretManager);
+    public void setAppSecretManager(ApiSecretManager appSecretManager);
 
     /**
      * 设置会话管理器，以验证会话的合法性

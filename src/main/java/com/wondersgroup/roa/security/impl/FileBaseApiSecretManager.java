@@ -12,7 +12,7 @@
 package com.wondersgroup.roa.security.impl;
 
 import com.wondersgroup.roa.context.ROAException;
-import com.wondersgroup.roa.security.AppSecretManager;
+import com.wondersgroup.roa.security.ApiSecretManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,11 +28,11 @@ import java.util.Properties;
  * 
  * @author Jacky.Li
  */
-public class FileBaseAppSecretManager implements AppSecretManager {
+public class FileBaseApiSecretManager implements ApiSecretManager {
 
-	private static final String ROA_APP_SECRET_PROPERTIES = "roa.appSecret.properties";
+	private static final String ROA_API_SECRET_PROPERTIES = "roa.apiSecret.properties";
 
-	private String appSecretFile = ROA_APP_SECRET_PROPERTIES;
+	private String apiSecretFile = ROA_API_SECRET_PROPERTIES;
 
 	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -42,7 +42,7 @@ public class FileBaseAppSecretManager implements AppSecretManager {
 		if (properties == null) {
 			try {
 				DefaultResourceLoader resourceLoader = new DefaultResourceLoader();
-				Resource resource = resourceLoader.getResource(appSecretFile);
+				Resource resource = resourceLoader.getResource(apiSecretFile);
 				properties = PropertiesLoaderUtils.loadProperties(resource);
 			}
 			catch (IOException e) {
@@ -56,8 +56,8 @@ public class FileBaseAppSecretManager implements AppSecretManager {
 		return secret;
 	}
 
-	public void setAppSecretFile(String appSecretFile) {
-		this.appSecretFile = appSecretFile;
+	public void setApiSecretFile(String apiSecretFile) {
+		this.apiSecretFile = apiSecretFile;
 	}
 
 	@Override

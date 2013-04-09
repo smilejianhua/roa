@@ -17,7 +17,7 @@ import com.wondersgroup.roa.context.ROAException;
 import com.wondersgroup.roa.security.impl.DefaultInvokeTimesController;
 import com.wondersgroup.roa.security.impl.DefaultSecurityManager;
 import com.wondersgroup.roa.security.impl.DefaultServiceAccessController;
-import com.wondersgroup.roa.security.impl.FileBaseAppSecretManager;
+import com.wondersgroup.roa.security.impl.FileBaseApiSecretManager;
 import com.wondersgroup.roa.session.impl.DefaultSessionManager;
 
 import org.slf4j.Logger;
@@ -192,7 +192,7 @@ public class AnnotationDrivenBeanDefinitionParser implements BeanDefinitionParse
 			}
 		}
 		else {
-			RootBeanDefinition appSecretManagerDef = new RootBeanDefinition(FileBaseAppSecretManager.class);
+			RootBeanDefinition appSecretManagerDef = new RootBeanDefinition(FileBaseApiSecretManager.class);
 			appSecretManagerDef.setSource(source);
 			appSecretManagerDef.setRole(BeanDefinition.ROLE_INFRASTRUCTURE);
 			String appSecretManagerName = parserContext.getReaderContext().registerWithGeneratedName(
@@ -200,7 +200,7 @@ public class AnnotationDrivenBeanDefinitionParser implements BeanDefinitionParse
 			parserContext.registerComponent(new BeanComponentDefinition(appSecretManagerDef, appSecretManagerName));
 			appSecretManagerRef = new RuntimeBeanReference(appSecretManagerName);
 			if (logger.isInfoEnabled()) {
-				logger.info("使用默认的密钥管理器:" + FileBaseAppSecretManager.class.getName());
+				logger.info("使用默认的密钥管理器:" + FileBaseApiSecretManager.class.getName());
 			}
 		}
 		return appSecretManagerRef;
