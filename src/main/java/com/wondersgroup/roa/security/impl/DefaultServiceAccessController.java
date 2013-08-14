@@ -22,7 +22,7 @@ import com.wondersgroup.roa.session.Session;
 public class DefaultServiceAccessController implements ServiceAccessController {
 
     @Override
-    public boolean isAppGranted(String apiKey, String method, String version) {
+    public boolean isAppGranted(String appKey, String method, String version) {
         return true;
     }
 
@@ -31,4 +31,3 @@ public class DefaultServiceAccessController implements ServiceAccessController {
         return true;
     }
 }
-

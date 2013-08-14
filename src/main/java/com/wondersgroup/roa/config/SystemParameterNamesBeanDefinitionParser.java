@@ -26,7 +26,7 @@ public class SystemParameterNamesBeanDefinitionParser implements BeanDefinitionP
 
 	@Override
 	public BeanDefinition parse(Element element, ParserContext parserContext) {
-		String apiKey = element.getAttribute("apikey-param-name");
+		String appKey = element.getAttribute("appkey-param-name");
 		String sessionId = element.getAttribute("sessionid-param-name");
 		String method = element.getAttribute("method-param-name");
 		String version = element.getAttribute("version-param-name");
@@ -34,8 +34,8 @@ public class SystemParameterNamesBeanDefinitionParser implements BeanDefinitionP
 		String locale = element.getAttribute("locale-param-name");
 		String sign = element.getAttribute("sign-param-name");
 
-		if (StringUtils.hasText(apiKey)) {
-			SystemParameterNames.setApiKey(apiKey);
+		if (StringUtils.hasText(appKey)) {
+			SystemParameterNames.setAppKey(appKey);
 		}
 		if (StringUtils.hasText(sessionId)) {
 			SystemParameterNames.setSessionId(sessionId);

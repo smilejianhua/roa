@@ -35,7 +35,7 @@ public class SimpleROARequestContext implements ROARequestContext {
 
 	private String version;
 
-	private String apiKey;
+	private String appKey;
 
 	private String sessionId;
 
@@ -195,8 +195,8 @@ public class SimpleROARequestContext implements ROARequestContext {
 		this.roaRequest = roaRequest;
 	}
 
-	public String getApiKey() {
-		return this.apiKey;
+	public String getAppKey() {
+		return this.appKey;
 	}
 
 	public void setLocale(Locale locale) {
@@ -220,8 +220,8 @@ public class SimpleROARequestContext implements ROARequestContext {
 		this.sessionId = sessionId;
 	}
 
-	public void setApiKey(String apiKey) {
-		this.apiKey = apiKey;
+	public void setAppKey(String appKey) {
+		this.appKey = appKey;
 	}
 
 	@Override

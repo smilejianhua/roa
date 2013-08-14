@@ -11,7 +11,13 @@
  */
 package com.wondersgroup.roa;
 
+
 public class Constants {
 
 	public static final String UTF8 = "UTF-8";
+	
+	private void sysout() {
+		// TODO Auto-generated method stub
+
+	}
 }

@@ -110,7 +110,7 @@ public class DefaultROAContext implements ROAContext {
 	 */
 	private void registerFromContext(final ApplicationContext context) throws BeansException {
 		if (logger.isDebugEnabled()) {
-			logger.debug("对Spring上下文中的Bean进行扫描，查找ROP服务方法: " + context);
+			logger.debug("对Spring上下文中的Bean进行扫描，查找ROA服务方法: " + context);
 		}
 		String[] beanNames = context.getBeanNamesForType(Object.class);
 		for (final String beanName : beanNames) {
@@ -149,25 +149,21 @@ public class DefaultROAContext implements ROAContext {
 							throw new ROAException(method.getDeclaringClass().getName() + "." + method.getName()
 									+ "的入参必须是" + ROARequest.class.getName());
 						}
-						boolean ropRequestImplType = !(paramType.isAssignableFrom(ROARequest.class) || paramType
+						boolean roaRequestImplType = !(paramType.isAssignableFrom(ROARequest.class) || paramType
 								.isAssignableFrom(AbstractROARequest.class));
-						serviceMethodHandler.setROARequestImplType(ropRequestImplType);
+						serviceMethodHandler.setROARequestImplType(roaRequestImplType);
 						serviceMethodHandler.setRequestType((Class<? extends ROARequest>) paramType);
 					}
 					else {
 						logger.info(method.getDeclaringClass().getName() + "." + method.getName() + "无入参");
 					}
-
 					// 2.set sign fieldNames
 					serviceMethodHandler.setIgnoreSignFieldNames(getIgnoreSignFieldNames(serviceMethodHandler
 							.getRequestType()));
-
 					// 3.set fileItemFieldNames
 					serviceMethodHandler.setUploadFileFieldNames(getFileItemFieldNames(serviceMethodHandler
 							.getRequestType()));
-
 					addServiceMethod(definition.getMethod(), definition.getVersion(), serviceMethodHandler);
-
 					if (logger.isDebugEnabled()) {
 						logger.debug("注册服务方法：" + method.getDeclaringClass().getCanonicalName() + "#" + method.getName()
 								+ "(..)");

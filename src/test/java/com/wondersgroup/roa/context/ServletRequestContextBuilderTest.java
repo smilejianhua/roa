@@ -74,7 +74,7 @@ public class ServletRequestContextBuilderTest {
         //构造HttpServletRequest
         MockHttpServletRequest servletRequest = new MockHttpServletRequest();
 
-        servletRequest.setParameter(SystemParameterNames.getApiKey(), "apiKey1");
+        servletRequest.setParameter(SystemParameterNames.getAppKey(), "appKey1");
         servletRequest.setParameter(SystemParameterNames.getSessionId(), "sessionId1");
         servletRequest.setParameter(SystemParameterNames.getMethod(), "method1");
         servletRequest.setParameter(SystemParameterNames.getVersion(), "3.0");
@@ -92,7 +92,7 @@ public class ServletRequestContextBuilderTest {
         assertEquals(requestContext.getParamValue("param1"), "value1");
         assertEquals(requestContext.getRawRequestObject(), servletRequest);
 
-        assertEquals(requestContext.getApiKey(), "apiKey1");
+        assertEquals(requestContext.getAppKey(), "appKey1");
         assertEquals(requestContext.getSessionId(), "sessionId1");
         assertEquals(requestContext.getMethod(), "method1");
         assertEquals(requestContext.getVersion(), "3.0");

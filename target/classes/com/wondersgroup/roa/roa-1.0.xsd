@@ -91,7 +91,7 @@
     <!--自定义ROA系统参数名-->
     <xsd:element name="sysparams">
         <xsd:complexType>
-            <xsd:attribute name="apikey-param-name" type="xsd:string"/>
+            <xsd:attribute name="appkey-param-name" type="xsd:string"/>
             <xsd:attribute name="sessionid-param-name" type="xsd:string"/>
             <xsd:attribute name="method-param-name" type="xsd:string"/>
             <xsd:attribute name="version-param-name" type="xsd:string"/>

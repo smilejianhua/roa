@@ -28,7 +28,7 @@ public interface ROAClient {
 	 * @param paramName
 	 * @return
 	 */
-	public ROAClient setApiKeyParamName(String paramName);
+	public ROAClient setAppKeyParamName(String paramName);
 
 	/**
 	 * 设置sessionId的参数名

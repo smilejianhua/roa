@@ -12,7 +12,7 @@
 package com.wondersgroup.roa.security;
 
 /**
- * 应用键管理器，可根据apiKey获取对应的secret.
+ * 应用键管理器，可根据appKey获取对应的secret.
  * 
  * @author Jacky.Li
  */
@@ -21,17 +21,17 @@ public interface ApiSecretManager {
     /**
      * 获取应用程序的密钥
      *
-     * @param apiKey
+     * @param appKey
      * @return
      */
-    public String getSecret(String apiKey);
+    public String getSecret(String appKey);
 
     /**
-     * 是否是合法的apiKey
+     * 是否是合法的appKey
      *
-     * @param apiKey
+     * @param appKey
      * @return
      */
-    public boolean isValidApiKey(String apiKey);
+    public boolean isValidAppKey(String appKey);
 }
 

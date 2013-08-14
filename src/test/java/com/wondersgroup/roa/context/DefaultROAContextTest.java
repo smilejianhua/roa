@@ -61,10 +61,10 @@ public class DefaultROAContextTest {
         when(context.getBeanNamesForType(Object.class)).thenReturn(new String[]{"service1"});
         Class withGroupServiceClass = WithGroupService.class;
         when(context.getType("service1")).thenReturn(withGroupServiceClass);
-        ROAContext ropContext = new DefaultROAContext(context);
+        ROAContext roaContext = new DefaultROAContext(context);
 
         //method1:都在ServiceMethodGroup中定义，在ServiceMethod中直接采用
-        ServiceMethodHandler handler = ropContext.getServiceMethodHandler("service.method1", "1.0");
+        ServiceMethodHandler handler = roaContext.getServiceMethodHandler("service.method1", "1.0");
         ServiceMethodDefinition definition = handler.getServiceMethodDefinition();
         assertNotNull(definition);
         assertEquals(definition.getMethod(), "service.method1");
@@ -78,7 +78,7 @@ public class DefaultROAContextTest {
         assertEquals(definition.getVersion(), "1.0");
 
         //method2:在ServiceMethodGroup中定义，在ServiceMethod显式覆盖之
-        ServiceMethodHandler handler2 = ropContext.getServiceMethodHandler("service.method2", "2.0");
+        ServiceMethodHandler handler2 = roaContext.getServiceMethodHandler("service.method2", "2.0");
         ServiceMethodDefinition definition2 = handler2.getServiceMethodDefinition();
         assertNotNull(definition2);
         assertEquals(definition2.getMethod(), "service.method2");
@@ -95,12 +95,11 @@ public class DefaultROAContextTest {
     @Test
     public void testIngoreSignField() {
         ApplicationContext context = mock(ApplicationContext.class);
-
         when(context.getBeanNamesForType(Object.class)).thenReturn(new String[]{"method1"});
-        Class serviceClass = IgnoreSignRopRequestService.class;
+        Class serviceClass = IgnoreSignROARequestService.class;
         when(context.getType("method1")).thenReturn(serviceClass);
-        ROAContext ropContext = new DefaultROAContext(context);
-        ServiceMethodHandler method1 = ropContext.getServiceMethodHandler("method1", "1.0");
+        ROAContext roaContext = new DefaultROAContext(context);
+        ServiceMethodHandler method1 = roaContext.getServiceMethodHandler("method1", "1.0");
         List<String> ignoreSignFieldNames = method1.getIgnoreSignFieldNames();
         assertNotNull(ignoreSignFieldNames);
         assertEquals(ignoreSignFieldNames.size(), 4);
@@ -109,7 +108,7 @@ public class DefaultROAContextTest {
         assertTrue(ignoreSignFieldNames.contains("sign"));
     }
 
-    public class IgnoreSignRopRequestService {
+    public class IgnoreSignROARequestService {
         @ServiceMethod(method = "method1", version = "1.0")
         public Object method1(FooROARequest request) {
             return null;

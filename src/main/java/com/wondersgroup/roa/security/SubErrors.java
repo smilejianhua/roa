@@ -77,7 +77,7 @@ public class SubErrors {
 			return new SubError(subErrorCode, parsedSubErrorMessage);
 		}
 		catch (NoSuchMessageException e) {
-			logger.error("不存在对应的错误键：{}，请检查是否正确配置了应用的错误资源，" + "默认位置：i18n/rop/ropError", subErrorCode);
+			logger.error("不存在对应的错误键：{}，请检查是否正确配置了应用的错误资源，" + "默认位置：i18n/roa/roaError", subErrorCode);
 			throw e;
 		}
 	}
